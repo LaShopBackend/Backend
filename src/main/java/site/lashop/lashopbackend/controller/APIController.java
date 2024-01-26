@@ -3,16 +3,22 @@ package site.lashop.lashopbackend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.lashop.lashopbackend.model.Category;
 import site.lashop.lashopbackend.model.Item;
 import site.lashop.lashopbackend.model.Size;
 import site.lashop.lashopbackend.model.SneakersType;
+import site.lashop.lashopbackend.service.CategoryService;
+import site.lashop.lashopbackend.service.ItemService;
 import site.lashop.lashopbackend.service.SneakersTypeService;
+
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class APIController {
     private final SneakersTypeService sneakersTypeService;
+    private final ItemService itemService;
+    private final CategoryService categoryService;
 
     @GetMapping("/api/items")
     public Iterable<Item> getItems() {
@@ -28,6 +34,11 @@ public class APIController {
         sneakersType.setModel("530");
         sneakersType.setImageUrl("https://main-cdn.sbermegamarket.ru/hlr-system/963/692/005/615/355/600012504434b0.jpeg");
         sneakersType.setColor("Blue");
+        Category category = new Category();
+        category.setDisplayName("Sneakers");
+        category.setDescription("фифифифифиффиифиdjclillaudhs");
+        categoryService.saveCategory(category);
+        sneakersType.setCategory(category);
         Size size = new Size();
         size.setUs(40.5);
         size.setUk(41.5);
@@ -38,7 +49,7 @@ public class APIController {
         item.setSneakersType(sneakersType);
         item.setSneakerSize(size);
         sneakersTypeService.saveSneakersType(sneakersType);
-        //return List.of(krossovka, krossovkaSabina);
+        itemService.saveItem(item);
         return  List.of(item);
     }
 }
