@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long itemId;
+    Long Id;
     @ManyToOne
     SneakersType sneakersType;
-    @ManyToOne
-    Size sneakerSize;
+
+    double sizeUs;
 }

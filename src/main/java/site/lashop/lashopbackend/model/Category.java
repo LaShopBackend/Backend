@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long categoryId;
+    Long Id;
     String displayName;
     String description;
 }

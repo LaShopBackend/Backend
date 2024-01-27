@@ -31,7 +31,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation "org.jboss.logging:jboss-logging:3.5.3.Final"
-
+	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.2'
 }
 
 tasks.named('test') {
