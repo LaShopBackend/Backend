@@ -16,5 +16,6 @@ public class Category {
     Long Id;
     String displayName;
     String description;
+    String image;
 }
 
